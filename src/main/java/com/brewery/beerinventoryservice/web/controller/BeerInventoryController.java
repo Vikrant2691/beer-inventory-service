@@ -1,6 +1,6 @@
 package com.brewery.beerinventoryservice.web.controller;
 
-import com.brewery.beerinventoryservice.brewery.model.BeerInventoryDto;
+import brewery.model.BeerInventoryDto;
 import com.brewery.beerinventoryservice.repository.BeerInventoryRepository;
 import com.brewery.beerinventoryservice.web.mapper.BeerInventoryMapper;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +30,16 @@ public class BeerInventoryController {
         log.debug("Finding Inventory for beerId:" + beerId);
 
         return beerInventoryRepository.findAllBeerById(beerId)
+                .stream()
+                .map(beerInventoryMapper::beerInventoryToBeerInventoryDto)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping("api/v1/beer/upc/{beerUPC}/inventory")
+    List<BeerInventoryDto> listBeersByUPC(@PathVariable String beerUPC){
+        log.debug("Finding Inventory for beerId:" + beerUPC);
+
+        return beerInventoryRepository.findAllBeerByUpc(beerUPC)
                 .stream()
                 .map(beerInventoryMapper::beerInventoryToBeerInventoryDto)
                 .collect(Collectors.toList());

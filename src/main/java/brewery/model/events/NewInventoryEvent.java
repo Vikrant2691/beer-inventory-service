@@ -1,4 +1,4 @@
-package com.brewery.beerinventoryservice.brewery.events;
+package brewery.model.events;
 
 
 import lombok.NoArgsConstructor;

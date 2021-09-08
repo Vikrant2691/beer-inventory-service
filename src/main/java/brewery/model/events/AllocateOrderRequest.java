@@ -1,7 +1,7 @@
-package com.brewery.beerinventoryservice.brewery.events;
+package brewery.model.events;
 
 
-import com.brewery.beerinventoryservice.brewery.model.BeerOrderDto;
+import brewery.model.BeerOrderDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class DeallocateOrderRequest {
+public class AllocateOrderRequest {
     private BeerOrderDto beerOrderDto;
 }

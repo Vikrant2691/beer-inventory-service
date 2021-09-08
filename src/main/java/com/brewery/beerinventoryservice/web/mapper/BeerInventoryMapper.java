@@ -1,7 +1,7 @@
 package com.brewery.beerinventoryservice.web.mapper;
 
 
-import com.brewery.beerinventoryservice.brewery.model.BeerInventoryDto;
+import brewery.model.BeerInventoryDto;
 import com.brewery.beerinventoryservice.domain.BeerInventory;
 import org.mapstruct.Mapper;
 

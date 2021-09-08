@@ -1,5 +1,4 @@
-package com.brewery.beerinventoryservice.brewery.model;
-
+package brewery.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,16 +7,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.OffsetDateTime;
-import java.util.List;
 import java.util.UUID;
-
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BeerOrderDto {
+public class BeerOrderLineDto {
 
     @JsonProperty("id")
     private UUID id = null;
@@ -29,13 +27,15 @@ public class BeerOrderDto {
     @JsonProperty("createdDate")
     private OffsetDateTime createdDate = null;
 
-    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssZ", shape=JsonFormat.Shape.STRING)
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssZ", shape= JsonFormat.Shape.STRING)
     @JsonProperty("lastModifiedDate")
     private OffsetDateTime lastModifiedDate = null;
 
-    private UUID customerId;
-    private String customerRef;
-    private List<BeerOrderLineDto> beerOrderLines;
-    private String orderStatus;
-    private String orderStatusCallbackUrl;
+    private String upc;
+    private String beerName;
+    private String beerStyle;
+    private UUID beerId;
+    private Integer orderQuantity = 0;
+    private Integer quantityAllocated;
+    private BigDecimal price;
 }
